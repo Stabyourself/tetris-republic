@@ -1,41 +1,38 @@
 <template>
-    <div>
+    <v-card
+        class="mx-auto"
+        :loading="form.processing"
+        :max-width="400"
+        >
+        <v-card-title>Log in</v-card-title>
+        <v-card-text>
+            <div v-if="status" class="mb-4 green--text">
+                {{ status }}
+            </div>
 
-        <v-card
-            class="mx-auto"
-            :loading="form.processing"
-            :max-width="400"
-            >
-            <v-card-title>Log in</v-card-title>
-            <v-card-text>
-                <div v-if="status" class="mb-4 green--text">
-                    {{ status }}
+            <form @submit.prevent="submit">
+                <v-text-field label="Email" type="email" v-model="form.email" required autofocus
+                    :error-messages="this.$page.props.errors.email"></v-text-field>
+
+                <v-text-field label="Password" type="password" v-model="form.password" required
+                    :error-messages="this.$page.props.errors.password"></v-text-field>
+
+                <v-checkbox label="Remember me" v-model="form.remember">
+                    Remember me
+                </v-checkbox>
+
+                <div class="d-flex align-center justify-space-between">
+                    <router-link v-if="canResetPassword" :href="route('password.request')">
+                        Forgot your password?
+                    </router-link>
+
+                    <v-btn type="submit" :loading="form.processing" :disabled="form.processing">
+                        Log in
+                    </v-btn>
                 </div>
-
-                <form @submit.prevent="submit">
-                    <v-text-field label="Email" type="email" v-model="form.email" required autofocus
-                        :error-messages="this.$page.props.errors.email"></v-text-field>
-
-                    <v-text-field label="Password" type="password" v-model="form.password" required
-                        :error-messages="this.$page.props.errors.password"></v-text-field>
-
-                    <v-checkbox label="Remember me" v-model="form.remember">
-                        Remember me
-                    </v-checkbox>
-
-                    <div class="d-flex align-center justify-space-between">
-                        <router-link v-if="canResetPassword" :href="route('password.request')">
-                            Forgot your password?
-                        </router-link>
-
-                        <v-btn type="submit" :loading="form.processing" :disabled="form.processing">
-                            Log in
-                        </v-btn>
-                    </div>
-                </form>
-            </v-card-text>
-        </v-card>
-    </div>
+            </form>
+        </v-card-text>
+    </v-card>
 </template>
 
 <script>
