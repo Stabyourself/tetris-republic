@@ -1,6 +1,5 @@
 <template>
     <div>
-        <ValidationErrors class="mb-4" />
 
         <v-card
             class="mx-auto"
@@ -14,9 +13,11 @@
                 </div>
 
                 <form @submit.prevent="submit">
-                    <v-text-field label="Email" type="email" v-model="form.email" required autofocus  />
+                    <v-text-field label="Email" type="email" v-model="form.email" required autofocus
+                        :error-messages="this.$page.props.errors.email"></v-text-field>
 
-                    <v-text-field label="Password" type="password" v-model="form.password" required  />
+                    <v-text-field label="Password" type="password" v-model="form.password" required
+                        :error-messages="this.$page.props.errors.password"></v-text-field>
 
                     <v-checkbox label="Remember me" v-model="form.remember">
                         Remember me
