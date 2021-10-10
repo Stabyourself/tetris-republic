@@ -9,12 +9,38 @@
             <v-spacer></v-spacer>
             <v-toolbar-items>
                 <v-btn
-                v-for="item in items"
-                :key="item.label"
-                :to="item.url">
-                    <v-icon left>{{ item.icon }}</v-icon>
-                    {{ item.label }}
+                    to="/test">
+                    <v-icon left>mdi-plus</v-icon>
+                    Another page
                 </v-btn>
+
+                <v-menu offset-y
+                    v-if="$page.props.auth.user">
+                    <template v-slot:activator="{ on }">
+                        <v-btn v-on="on">
+                            <v-icon left>mdi-account</v-icon>
+                            {{ $page.props.auth.user.name }}
+                        </v-btn>
+                    </template>
+                    <v-list>
+                        <v-list-item>
+                            <v-list-item-action>
+                                <router-link :href="route('logout')" method="post">
+                                    <v-icon left>mdi-login</v-icon>
+                                    Log Out
+                                </router-link>
+                            </v-list-item-action>
+                        </v-list-item>
+                    </v-list>
+                </v-menu>
+
+                <v-btn
+                    v-else
+                    :to="route('login')">
+                    <v-icon left>mdi-login</v-icon>
+                    Log In
+                </v-btn>
+
             </v-toolbar-items>
         </v-toolbar>
     </div>
@@ -24,18 +50,7 @@
     export default {
         data() {
             return {
-                items: [
-                    {
-                        label:'Home',
-                        icon:'mdi-home',
-                        url:"/"
-                    },
-                    {
-                        label:'Another Page',
-                        icon:'mdi-plus',
-                        url:"/test",
-                    }
-                ]
+
             }
         }
     }

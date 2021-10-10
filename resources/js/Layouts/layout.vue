@@ -1,8 +1,7 @@
 <template>
-    <!-- Page Content -->
     <v-app>
         <v-main>
-            <tr-menu></tr-menu>
+            <TrMenu></TrMenu>
 
             <v-container>
                 <slot></slot>
@@ -10,11 +9,3 @@
         </v-main>
     </v-app>
 </template>
-
-<script>
-    export default {
-        data() {
-
-        },
-    }
-</script>

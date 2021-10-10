@@ -6,7 +6,7 @@ import vuetify from './vuetify' // path to vuetify export
 
 import { createInertiaApp, Link } from '@inertiajs/inertia-vue'
 import { InertiaProgress } from '@inertiajs/progress'
-InertiaProgress.init({ color: '#449E48' });
+InertiaProgress.init({ color: '#00BEBE' });
 
 Vue.component('inertia-link', Link)
 Vue.component('router-link', {
@@ -44,6 +44,8 @@ requireComponent.keys().forEach(fileName => {
     )
 })
 
+Vue.prototype.route = route
+
 import Layout from './Layouts/layout'
 
 createInertiaApp({
@@ -56,7 +58,8 @@ createInertiaApp({
       new Vue({
         vuetify,
         render: h => h(App, props),
-      }).$mount("#app")
+      })
+      .$mount("#app")
     },
   })
 

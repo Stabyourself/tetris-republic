@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home']);
 Route::get('/test', [HomeController::class, 'test']);
+
+require __DIR__.'/auth.php';
