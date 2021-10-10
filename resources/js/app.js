@@ -44,8 +44,14 @@ requireComponent.keys().forEach(fileName => {
     )
 })
 
+import Layout from './Layouts/layout'
+
 createInertiaApp({
-    resolve: name => require(`./Pages/${name}`),
+    resolve: name => {
+      const page = require(`./Pages/${name}`).default
+      page.layout = page.layout || Layout
+      return page
+    },
     setup({ App, props }) {
       new Vue({
         vuetify,

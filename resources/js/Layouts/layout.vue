@@ -14,9 +14,7 @@
 <script>
     export default {
         data() {
-            return {
-                showingNavigationDropdown: false,
-            }
+
         },
     }
 </script>

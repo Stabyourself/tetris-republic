@@ -1,17 +1,15 @@
 <template>
-    <layout>
+    <div>
         <h1>Test</h1>
 
-        Jo!!!
-    </layout>
+        Jo
+    </div>
 </template>
 
 <script>
-    import layout from '@/Layouts/layout.vue'
-
     export default {
         components: {
-            layout,
+
         },
     }
 </script>

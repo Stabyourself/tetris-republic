@@ -1,17 +1,15 @@
 <template>
-    <layout>
+    <div>
         <h1>Home</h1>
 
-        Jo
-    </layout>
+        Holy shit SPA! When you click on "another page" at the top it only reloads this part wew!
+    </div>
 </template>
 
 <script>
-    import layout from '@/Layouts/layout.vue'
-
     export default {
         components: {
-            layout,
+
         },
     }
 </script>
