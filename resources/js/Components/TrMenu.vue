@@ -2,7 +2,7 @@
     <div>
         <v-toolbar>
             <v-toolbar-title>
-                <router-link href="/">
+                <router-link href="/" as="span">
                     Tetris Republic
                 </router-link>
             </v-toolbar-title>

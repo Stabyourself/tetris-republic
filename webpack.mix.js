@@ -16,7 +16,7 @@ const path = require('path');
 mix.js('resources/js/app.js', 'public/js')
     .vue()
     .vuetify('vuetify-loader')
-    .alias({'@': path.join(__dirname, 'resources/js')})
+    .alias({ '@': path.join(__dirname, 'resources/js') })
     .sass('resources/css/app.scss', 'public/css')
     .sourceMaps(false)
     .version()
