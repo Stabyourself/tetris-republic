@@ -1,6 +1,5 @@
-require('./bootstrap');
-
 // Import modules...
+window._ = require('lodash');
 import Vue from 'vue'
 import vuetify from './vuetify' // path to vuetify export
 
@@ -46,7 +45,7 @@ requireComponent.keys().forEach(fileName => {
 
 Vue.prototype.route = route
 
-import Layout from './Layouts/layout'
+import Layout from './Shared/layout'
 
 createInertiaApp({
     resolve: name => {

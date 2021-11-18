@@ -25,7 +25,7 @@
                     <v-list>
                         <v-list-item>
                             <v-list-item-action>
-                                <router-link :href="route('logout')" method="post">
+                                <router-link :href="route('logout')" method="post" as="v-btn">
                                     <v-icon left>mdi-login</v-icon>
                                     Log Out
                                 </router-link>
